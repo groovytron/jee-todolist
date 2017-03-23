@@ -1,1 +1,6 @@
-/ToDoList/ToDoListApp/nbproject/private/
+private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
