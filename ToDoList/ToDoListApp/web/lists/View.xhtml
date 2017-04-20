@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewListsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewListsLabel_id}"/>
+                    <h:outputText value="#{listsController.selected.id}" title="#{bundle.ViewListsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewListsLabel_createdAt}"/>
+                    <h:outputText value="#{listsController.selected.createdAt}" title="#{bundle.ViewListsTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewListsLabel_name}"/>
+                    <h:outputText value="#{listsController.selected.name}" title="#{bundle.ViewListsTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewListsLabel_userId}"/>
+                    <h:outputText value="#{listsController.selected.userId}" title="#{bundle.ViewListsTitle_userId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{listsController.destroyAndView}" value="#{bundle.ViewListsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewListsEditLink}"/>
+                <br />
+                <h:commandLink action="#{listsController.prepareCreate}" value="#{bundle.ViewListsCreateLink}" />
+                <br />
+                <h:commandLink action="#{listsController.prepareList}" value="#{bundle.ViewListsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewListsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
