@@ -4,18 +4,22 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="css/app.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="/groups/List" value="Show All Groups Items"/>
-        <br />
-        <h:link outcome="/lists/List" value="Show All Lists Items"/>
-        <br />
-        <h:link outcome="/tasks/List" value="Show All Tasks Items"/>
-        <br />
-        <h:link outcome="/users/List" value="Show All Users Items"/>
+        <div class="container">
+            <h2>Welcome in Todo List!</h2>
+            <p>
+                Please choose one of the following actions:
+            </p>
+            <h:link outcome="/groups/List" value="Show All Groups Items"/>
+            <br />
+            <h:link outcome="/lists/List" value="Show All Lists Items"/>
+            <br />
+            <h:link outcome="/tasks/List" value="Show All Tasks Items"/>
+            <br />
+            <h:link outcome="/users/List" value="Show All Users Items"/>
+        </div>
     </h:body>
 
 

@@ -3,3 +3,4 @@ build/
 dist/
 glassfish-resources.xml
 web.xml
+node_modules
