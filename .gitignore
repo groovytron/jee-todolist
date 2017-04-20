@@ -2,3 +2,4 @@ ToDoList/ToDoListApp/nbproject/private
 build/
 dist/
 glassfish-resources.xml
+web.xml
