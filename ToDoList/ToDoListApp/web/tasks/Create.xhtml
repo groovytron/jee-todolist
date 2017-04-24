@@ -15,37 +15,37 @@
             </h:panelGroup>
             <h:form>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_id}" for="id" />
-                  <h:inputText id="id" class="form-control" value="#{tasksController.selected.id}" title="#{bundle.CreateTasksTitle_id}" required="true" requiredMessage="#{bundle.CreateTasksRequiredMessage_id}"/>
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_id}" for="Id" />
+                  <h:inputText id="id" class="form-control" value="#{tasksController.selected.id}" title="#{bundle.CreateTasksTitle_id}" required="false" requiredMessage="#{bundle.CreateTasksRequiredMessage_id}"/>
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_name}" for="name" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_name}" for="Name" />
                   <h:inputText id="name" class="form-control" value="#{tasksController.selected.name}" title="#{bundle.CreateTasksTitle_name}" required="true" requiredMessage="#{bundle.CreateTasksRequiredMessage_name}"/>
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_description}" for="description" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_description}" for="Description" />
                   <h:inputTextarea rows="4" cols="30" class="form-control" id="description" value="#{tasksController.selected.description}" title="#{bundle.CreateTasksTitle_description}" />
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_deadline}" for="deadline" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_deadline}" for="Deadline" />
                   <h:inputText id="deadline" class="form-control" value="#{tasksController.selected.deadline}" title="#{bundle.CreateTasksTitle_deadline}" >
-                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
                   </h:inputText>
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_createdAt}" for="createdAt" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_createdAt}" for="Created at" />
                   <h:inputText id="createdAt" class="form-control" value="#{tasksController.selected.createdAt}" title="#{bundle.CreateTasksTitle_createdAt}" >
-                  <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                  <f:convertDateTime pattern="MM/dd/yyyy" />
                 </h:inputText>
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_doneAt}" for="doneAt" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_doneAt}" for="Done at" />
                   <h:inputText id="doneAt" class="form-control" value="#{tasksController.selected.doneAt}" title="#{bundle.CreateTasksTitle_doneAt}" >
-                  <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                  <f:convertDateTime pattern="MM/dd/yyyy" />
                 </h:inputText>
                 </div>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_listId}" for="listId" />
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_listId}" for="ListId" />
                   <h:selectOneMenu id="listId" class="form-control" value="#{tasksController.selected.listId}" title="#{bundle.CreateTasksTitle_listId}" required="true" requiredMessage="#{bundle.CreateTasksRequiredMessage_listId}">
                   <f:selectItems value="#{listsController.itemsAvailableSelectOne}"/>
                 </h:selectOneMenu>

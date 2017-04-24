@@ -46,33 +46,6 @@
                     <h:link outcome="/index" value="#{bundle.CreateListsIndexLink}"/>
                 </div>
             </h:form>
-            <!-- <h:form>
-            <div class="form-group row">
-                <label for="id" class="col-2 col-form-label">#{bundle.CreateListsLabel_id}</label>
-                <input type="text" class="form-control col-3" id="id" name="id" aria-describedby="list id" placeholder="Enter a list id" />
-            </div>
-            <div class="form-group row">
-                <label for="createdAt" class="col-2 col-form-label">#{bundle.CreateListsLabel_createdAt}</label>
-                <input type="text" class="form-control col-3" id="createdAt" name="createdAt" aria-describedby="creation date" placeholder="Enter a date" />
-            </div>
-            <div class="form-group row">
-                <label for="name" class="col-2 col-form-label">#{bundle.CreateListsTitle_name}</label>
-                <input type="text" class="form-control col-3" id="name" name="name" aria-describedby="creation date" placeholder="Enter a date" />
-            </div>
-            <div class="form-group row">
-                <label for="userId" class="col-2 col-form-label">#{bundle.CreateListsTitle_userId}</label>
-                <h:selectOneMenu id="userId" class="form-control" value="#{listsController.selected.userId}" required="true" requiredMessage="#{bundle.CreateListsRequiredMessage_userId}">
-                    <f:selectItems value="#{usersController.itemsAvailableSelectOne}"/>
-                </h:selectOneMenu>
-            </div>
-            <div class="row">
-                <h:commandLink class="btn btn-primary" action="#{listsController.create}" value="#{bundle.CreateListsSaveLink}" />
-                <h:commandLink class="btn btn-primary" action="#{listsController.prepareList}" value="#{bundle.CreateListsShowAllLink}" immediate="true"/>
-            </div>
-            <div class="row">
-                <h:link outcome="/index" value="back to homepage"/>
-            </div>
-            </h:form>-->
         </ui:define>
     </ui:composition>
     

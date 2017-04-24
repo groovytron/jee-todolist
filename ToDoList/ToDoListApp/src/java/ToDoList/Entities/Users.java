@@ -133,7 +133,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "ToDoList.Entities.Users[ id=" + id + " ]";
+        return this.loginName;
     }
     
 }

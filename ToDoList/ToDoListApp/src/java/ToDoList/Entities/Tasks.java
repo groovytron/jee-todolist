@@ -159,7 +159,7 @@ public class Tasks implements Serializable {
 
     @Override
     public String toString() {
-        return "ToDoList.Entities.Tasks[ id=" + id + " ]";
+        return this.name + "(id = " + this.id + ")";
     }
     
 }
