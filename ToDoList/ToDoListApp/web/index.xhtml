@@ -21,11 +21,14 @@
             <h:link outcome="/users/List" value="Show All Users Items"/>
             <!-- Conditionnal rendering example -->
             <p>
-                <h:outputText value="Logout" rendered="#{not empty request.remoteUser}"/>
+                <h:outputText value="You are logged in" rendered="#{not empty request.remoteUser}"/>
             </p>
             <p>
                 <h:outputText value="You have super power!" rendered="#{facesContext.externalContext.isUserInRole('admins')}"/>
             </p>
+            <h:form>
+                <h:commandLink value="logout" action="#{loginManager.logout}" />
+            </h:form>
         </div>
     </h:body>
 </html>
