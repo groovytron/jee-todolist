@@ -137,7 +137,7 @@ public class Lists implements Serializable {
 
     @Override
     public String toString() {
-        return "ToDoList.Entities.Lists[ id=" + id + " ]";
+        return this.name + "(id = " + this.id + ")";
     }
     
 }

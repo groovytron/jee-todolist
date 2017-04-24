@@ -113,7 +113,7 @@ public class Groups implements Serializable {
 
     @Override
     public String toString() {
-        return "ToDoList.Entities.Groups[ id=" + id + " ]";
+        return this.name + "(id = " + this.id + ")";
     }
     
 }
