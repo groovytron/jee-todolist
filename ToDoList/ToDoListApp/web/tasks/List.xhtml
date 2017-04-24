@@ -19,7 +19,7 @@
                     <h:outputText value="#{tasksController.pagination.pageFirstItem + 1}..#{tasksController.pagination.pageLastItem + 1}/#{tasksController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{tasksController.previous}" value="#{bundle.Previous} #{tasksController.pagination.pageSize}" rendered="#{tasksController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{tasksController.next}" value="#{bundle.Next} #{tasksController.pagination.pageSize}" rendered="#{tasksController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{tasksController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable class="table table-striped" value="#{tasksController.items}" var="item" columnClasses=",,task-description">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTasksTitle_id}"/>
@@ -40,7 +40,13 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_deadline}"/>
+                                <h:outputText value="List"/>
+                            </f:facet>
+                            <h:outputText value="#{item.listId.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Deadline"/>
                             </f:facet>
                             <h:outputText value="#{item.deadline}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -48,7 +54,7 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_createdAt}"/>
+                                <h:outputText value="Created at"/>
                             </f:facet>
                             <h:outputText value="#{item.createdAt}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -56,7 +62,7 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_doneAt}"/>
+                                <h:outputText value="Done at"/>
                             </f:facet>
                             <h:outputText value="#{item.doneAt}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -64,19 +70,11 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_listId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.listId}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{tasksController.prepareView}" value="#{bundle.ListTasksViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tasksController.prepareEdit}" value="#{bundle.ListTasksEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tasksController.destroy}" value="#{bundle.ListTasksDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareView}" value="#{bundle.ListTasksViewLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareEdit}" value="#{bundle.ListTasksEditLink}"/>
+                            <h:commandLink class="btn btn-danger" action="#{tasksController.destroy}" value="#{bundle.ListTasksDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

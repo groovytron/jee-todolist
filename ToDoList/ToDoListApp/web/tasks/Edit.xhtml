@@ -14,39 +14,50 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTasksLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{tasksController.selected.id}" title="#{bundle.EditTasksTitle_id}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditTasksLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{tasksController.selected.name}" title="#{bundle.EditTasksTitle_name}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.EditTasksLabel_description}" for="description" />
-                    <h:inputTextarea rows="4" cols="30" id="description" value="#{tasksController.selected.description}" title="#{bundle.EditTasksTitle_description}" />
-                    <h:outputLabel value="#{bundle.EditTasksLabel_deadline}" for="deadline" />
-                    <h:inputText id="deadline" value="#{tasksController.selected.deadline}" title="#{bundle.EditTasksTitle_deadline}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditTasksLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" value="#{tasksController.selected.createdAt}" title="#{bundle.EditTasksTitle_createdAt}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditTasksLabel_doneAt}" for="doneAt" />
-                    <h:inputText id="doneAt" value="#{tasksController.selected.doneAt}" title="#{bundle.EditTasksTitle_doneAt}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditTasksLabel_listId}" for="listId" />
-                    <h:selectOneMenu id="listId" value="#{tasksController.selected.listId}" title="#{bundle.EditTasksTitle_listId}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_listId}">
-                        <f:selectItems value="#{listsController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{tasksController.update}" value="#{bundle.EditTasksSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditTasksViewLink}"/>
-                <br />
-                <h:commandLink action="#{tasksController.prepareList}" value="#{bundle.EditTasksShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditTasksIndexLink}" />
+              <div class="form-group row">
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_id}" for="id" />
+                  <h:inputText id="id" class="form-control" value="#{tasksController.selected.id}" title="#{bundle.EditTasksTitle_id}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_id}"/>
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_name}" for="name" />
+                  <h:inputText id="name" class="form-control" value="#{tasksController.selected.name}" title="#{bundle.EditTasksTitle_name}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_name}"/>
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_description}" for="description" />
+                  <h:inputTextarea rows="4" class="form-control" cols="30" id="description" value="#{tasksController.selected.description}" title="#{bundle.EditTasksTitle_description}" />
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_deadline}" for="deadline" />
+                  <h:inputText id="deadline" class="form-control" value="#{tasksController.selected.deadline}" title="#{bundle.EditTasksTitle_deadline}" >
+                  <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+              </h:inputText>
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_createdAt}" for="createdAt" />
+                  <h:inputText id="createdAt" class="form-control" value="#{tasksController.selected.createdAt}" title="#{bundle.EditTasksTitle_createdAt}" >
+                  <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                  </h:inputText>
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_doneAt}" for="doneAt" />
+                  <h:inputText id="doneAt" class="form-control" value="#{tasksController.selected.doneAt}" title="#{bundle.EditTasksTitle_doneAt}" >
+                  <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+              </h:inputText>
+              </div>
+              <div class="form-group row">
+                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditTasksLabel_listId}" for="listId" />
+                  <h:selectOneMenu id="listId" class="form-control" value="#{tasksController.selected.listId}" title="#{bundle.EditTasksTitle_listId}" required="true" requiredMessage="#{bundle.EditTasksRequiredMessage_listId}">
+                  <f:selectItems value="#{listsController.itemsAvailableSelectOne}"/>
+              </h:selectOneMenu>
+              </div>
+              <div class="form-group row">
+                  <h:commandLink class="btn btn-primary" action="#{tasksController.update}" value="#{bundle.EditTasksSaveLink}"/>
+                  <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditTasksViewLink}"/>
+                  <h:commandLink class="btn btn-primary" action="#{tasksController.prepareList}" value="#{bundle.EditTasksShowAllLink}" immediate="true"/>
+              </div>
+                <!-- <h:link outcome="/index" value="#{bundle.EditTasksIndexLink}" /> -->
             </h:form>
         </ui:define>
     </ui:composition>

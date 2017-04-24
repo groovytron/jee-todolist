@@ -14,29 +14,32 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditListsLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{listsController.selected.id}" title="#{bundle.EditListsTitle_id}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditListsLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" value="#{listsController.selected.createdAt}" title="#{bundle.EditListsTitle_createdAt}" >
+                <div class="form-group row">
+                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_id}" for="id" />
+                    <h:inputText id="id" class="form-control" value="#{listsController.selected.id}" title="#{bundle.EditListsTitle_id}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_id}"/>
+                </div>
+                <div class="form-group row">
+                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" class="form-control" value="#{listsController.selected.createdAt}" title="#{bundle.EditListsTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditListsLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{listsController.selected.name}" title="#{bundle.EditListsTitle_name}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.EditListsLabel_userId}" for="userId" />
-                    <h:selectOneMenu id="userId" value="#{listsController.selected.userId}" title="#{bundle.EditListsTitle_userId}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_userId}">
+                </div>
+                <div class="form-group row">
+                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_name}" for="name" />
+                    <h:inputText id="name" class="form-control" value="#{listsController.selected.name}" title="#{bundle.EditListsTitle_name}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_name}"/>
+                </div>
+                <div class="form-group row">
+                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_userId}" for="userId" />
+                    <h:selectOneMenu id="userId" class="form-control" value="#{listsController.selected.userId}" title="#{bundle.EditListsTitle_userId}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_userId}">
                         <f:selectItems value="#{usersController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{listsController.update}" value="#{bundle.EditListsSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditListsViewLink}"/>
-                <br />
-                <h:commandLink action="#{listsController.prepareList}" value="#{bundle.EditListsShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditListsIndexLink}" />
+                </div>
+                <div class="row">
+                  <h:commandLink class="btn btn-primary" action="#{listsController.update}" value="#{bundle.EditListsSaveLink}"/>
+                  <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditListsViewLink}"/>
+                  <h:commandLink class="btn btn-primary" action="#{listsController.prepareList}" value="#{bundle.EditListsShowAllLink}" immediate="true"/>
+                </div>
+                <!-- <h:link outcome="/index" value="#{bundle.EditListsIndexLink}" /> -->
             </h:form>
         </ui:define>
     </ui:composition>

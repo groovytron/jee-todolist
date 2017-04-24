@@ -7,38 +7,32 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewListsTitle}"></h:outputText>
+            <!-- <h:outputText value="#{bundle.ViewListsTitle}"></h:outputText> -->
+            <h:outputText value="#{listsController.selected.name}" title="#{bundle.ViewListsTitle_name}"/>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewListsLabel_id}"/>
-                    <h:outputText value="#{listsController.selected.id}" title="#{bundle.ViewListsTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewListsLabel_createdAt}"/>
-                    <h:outputText value="#{listsController.selected.createdAt}" title="#{bundle.ViewListsTitle_createdAt}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewListsLabel_name}"/>
-                    <h:outputText value="#{listsController.selected.name}" title="#{bundle.ViewListsTitle_name}"/>
-                    <h:outputText value="#{bundle.ViewListsLabel_userId}"/>
-                    <h:outputText value="#{listsController.selected.userId}" title="#{bundle.ViewListsTitle_userId}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{listsController.destroyAndView}" value="#{bundle.ViewListsDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewListsEditLink}"/>
-                <br />
-                <h:commandLink action="#{listsController.prepareCreate}" value="#{bundle.ViewListsCreateLink}" />
-                <br />
-                <h:commandLink action="#{listsController.prepareList}" value="#{bundle.ViewListsShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewListsIndexLink}"/>
-
+            <div class="row">
+              <p class="col-md-1">
+                by <h:outputText value="#{listsController.selected.userId.loginName}" title="#{bundle.ViewListsTitle_userId}"/>
+              </p>
+              <p class="col-md-2">
+                on
+                <h:outputText value="#{listsController.selected.createdAt}" title="#{bundle.ViewListsTitle_createdAt}">
+                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                </h:outputText>
+              </p>
+            </div>
+            <div class="row">
+                <h:commandLink class="btn btn-danger" action="#{listsController.destroyAndView}" value="#{bundle.ViewListsDestroyLink}"/>
+                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewListsEditLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{listsController.prepareCreate}" value="#{bundle.ViewListsCreateLink}" />
+                <h:commandLink class="btn btn-primary" action="#{listsController.prepareList}" value="#{bundle.ViewListsShowAllLink}"/>
+            </div>
+            <!-- <h:link outcome="/index" value="#{bundle.ViewListsIndexLink}"/> -->
             </h:form>
         </ui:define>
     </ui:composition>

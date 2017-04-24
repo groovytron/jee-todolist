@@ -4675,3 +4675,10 @@ a.text-danger:focus, a.text-danger:hover {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.btn {
+  margin-right: 15px; }
+
+.task-description {
+  max-width: 250px;
+  word-wrap: break-word; }

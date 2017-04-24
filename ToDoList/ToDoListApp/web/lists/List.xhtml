@@ -19,42 +19,28 @@
                     <h:outputText value="#{listsController.pagination.pageFirstItem + 1}..#{listsController.pagination.pageLastItem + 1}/#{listsController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{listsController.previous}" value="#{bundle.Previous} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{listsController.next}" value="#{bundle.Next} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable class="table" value="#{listsController.items}" var="item">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListListsTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListListsTitle_createdAt}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.createdAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column>
+                    <h:dataTable class="table table-striped" value="#{listsController.items}" var="item">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListListsTitle_name}"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </h:column>
-                        <h:column>
+                        <!-- <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListListsTitle_userId}"/>
+                                <h:outputText value="Creation date"/>
                             </f:facet>
-                            <h:outputText value="#{item.userId}"/>
-                        </h:column>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column> -->
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{listsController.prepareView}" value="#{bundle.ListListsViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{listsController.prepareEdit}" value="#{bundle.ListListsEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{listsController.destroy}" value="#{bundle.ListListsDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{listsController.prepareView}" value="#{bundle.ListListsViewLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{listsController.prepareEdit}" value="#{bundle.ListListsEditLink}"/>
+                            <h:commandLink class="btn btn-danger" action="#{listsController.destroy}" value="#{bundle.ListListsDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

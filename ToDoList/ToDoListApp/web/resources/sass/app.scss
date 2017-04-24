@@ -1,3 +1,11 @@
 
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
+
+.btn {
+  margin-right: 15px;
+}
+.task-description {
+  max-width: 250px;
+  word-wrap: break-word;
+}
