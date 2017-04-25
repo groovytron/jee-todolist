@@ -49,7 +49,7 @@
                                 <h:outputText value="Deadline"/>
                             </f:facet>
                             <h:outputText value="#{item.deadline}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </h:column>
                         <h:column>
@@ -57,7 +57,7 @@
                                 <h:outputText value="Created at"/>
                             </f:facet>
                             <h:outputText value="#{item.createdAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </h:column>
                         <h:column>
@@ -65,7 +65,7 @@
                                 <h:outputText value="Done at"/>
                             </f:facet>
                             <h:outputText value="#{item.doneAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </h:column>
                         <h:column>
