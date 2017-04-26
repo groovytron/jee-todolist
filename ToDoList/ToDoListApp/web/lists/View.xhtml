@@ -11,29 +11,72 @@
             <h:outputText value="#{listsController.selected.name}" title="#{bundle.ViewListsTitle_name}"/>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-            <div class="row">
-              <p class="col-md-1">
-                by <h:outputText value="#{listsController.selected.userId.loginName}" title="#{bundle.ViewListsTitle_userId}"/>
-              </p>
-              <p class="col-md-2">
-                on
-                <h:outputText value="#{listsController.selected.createdAt}" title="#{bundle.ViewListsTitle_createdAt}">
-                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
-                </h:outputText>
-              </p>
-            </div>
-            <div class="row">
-                <h:commandLink class="btn btn-danger" action="#{listsController.destroyAndView}" value="#{bundle.ViewListsDestroyLink}"/>
-                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewListsEditLink}"/>
-                <h:commandLink class="btn btn-primary" action="#{listsController.prepareCreate}" value="#{bundle.ViewListsCreateLink}" />
-                <h:commandLink class="btn btn-primary" action="#{listsController.prepareList}" value="#{bundle.ViewListsShowAllLink}"/>
-            </div>
-            <!-- <h:link outcome="/index" value="#{bundle.ViewListsIndexLink}"/> -->
-            </h:form>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:dataTable class="table table-striped" value="#{tasksController.items}" var="item" columnClasses=",,task-description">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTasksTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTasksTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTasksTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="List"/>
+                            </f:facet>
+                            <h:outputText value="#{item.listId.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Deadline"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deadline}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Created at"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Done at"/>
+                            </f:facet>
+                            <h:outputText value="#{item.doneAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <f:selectItem itemValue="#{item.index}" itemLabel="#{task-description}"/>   
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareView}" value="#{bundle.ListTasksViewLink}">
+                                <f:param name="id" value="#{item.id}" />
+                            </h:commandLink>
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareEdit}" value="#{bundle.ListTasksEditLink}"/>
+                            <h:commandLink class="btn btn-danger" action="#{tasksController.destroy}" value="#{bundle.ListTasksDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                <h:commandLink action="#{tasksController.prepareCreate}" value="#{bundle.ListTasksCreateLink}">
+                    <f:param name="listId" value="#{listsController.selected.id}" />
+                </h:commandLink>
+            </h:form>     
         </ui:define>
     </ui:composition>
 

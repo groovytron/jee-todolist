@@ -21,74 +21,49 @@
                 <h:link outcome="/tasks/List" value="Show All Tasks Items"/>
                 <br />
                 
-                
-                
-                
-                <h:form styleClass="jsfcrud_list_form">
-                <h:dataTable class="table table-striped" value="#{tasksController.items}" var="item" columnClasses=",,task-description">
+                       
+                <h:form>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListListsEmpty}" rendered="#{listsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{listsController.items.rowCount > 0}">
+                    <h:outputText value="#{listsController.pagination.pageFirstItem + 1}..#{listsController.pagination.pageLastItem + 1}/#{listsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{listsController.previous}" value="#{bundle.Previous} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{listsController.next}" value="#{bundle.Next} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable class="table table-striped" value="#{listsController.items}" var="item">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_name}"/>
+                                <h:outputText value="#{bundle.ListListsTitle_name}"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </h:column>
-                        <h:column>
+                        <!-- <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTasksTitle_description}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="List"/>
-                            </f:facet>
-                            <h:outputText value="#{item.listId.name}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Deadline"/>
-                            </f:facet>
-                            <h:outputText value="#{item.deadline}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Created at"/>
+                                <h:outputText value="Creation date"/>
                             </f:facet>
                             <h:outputText value="#{item.createdAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Done at"/>
-                            </f:facet>
-                            <h:outputText value="#{item.doneAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
+                        </h:column> -->
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <f:selectItem itemValue="#{item.index}" itemLabel="#{task-description}"/>   
-                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareView}" value="#{bundle.ListTasksViewLink}">
+                            <h:commandLink class="btn btn-primary" action="#{listsController.prepareView}" value="#{bundle.ListListsViewLink}">
                                 <f:param name="id" value="#{item.id}" />
                             </h:commandLink>
-                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareEdit}" value="#{bundle.ListTasksEditLink}"/>
-                            <h:commandLink class="btn btn-danger" action="#{tasksController.destroy}" value="#{bundle.ListTasksDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{listsController.prepareEdit}" value="#{bundle.ListListsEditLink}"/>
+                            <h:commandLink class="btn btn-danger" action="#{listsController.destroy}" value="#{bundle.ListListsDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
-                </h:form>
-                
-                
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{listsController.prepareCreate}" value="#{bundle.ListListsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListListsIndexLink}"/>
+            </h:form>  
                 
                 
                 
