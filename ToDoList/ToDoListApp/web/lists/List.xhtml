@@ -19,7 +19,7 @@
                     <h:outputText value="#{listsController.pagination.pageFirstItem + 1}..#{listsController.pagination.pageLastItem + 1}/#{listsController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{listsController.previous}" value="#{bundle.Previous} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{listsController.next}" value="#{bundle.Next} #{listsController.pagination.pageSize}" rendered="#{listsController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable class="table table-striped" value="#{listsController.items}" var="item">
+                    <h:dataTable id="tasks-list" class="table table-striped" value="#{listsController.items}" var="item">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListListsTitle_name}"/>
@@ -48,7 +48,8 @@
                 <h:commandLink action="#{listsController.prepareCreate}" value="#{bundle.ListListsCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListListsIndexLink}"/>
+                <a href="/ToDoListApp/faces/index.xhtml" id="home-link">Home</a>
+                <!-- <h:link outcome="/index" value="#{bundle.ListListsIndexLink}" id="index-link"/> -->
             </h:form>
         </ui:define>
     </ui:composition>

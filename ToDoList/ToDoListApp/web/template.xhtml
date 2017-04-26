@@ -14,24 +14,28 @@
     </h:head>
     <h:body>
         <div class="container">
-            <div class="Header">
-                <header>
-                   <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                      <!-- Brand and toggle get grouped for better mobile display -->
-                      <div class="navbar-header">
-                        <a class="navbar-brand" href="/ToDoListApp/faces/index.xhtml">Todolist</a>
-                        
-                      </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <button type="submit" class="btn btn-default pull-right">Submit</button>
-                        </li>
-                    </ul>
-                    </div>
-                  </nav>
-                </header>
-            </div>  
+            <h:panelGroup layout="block" rendered="#{not empty request.remoteUser}">
+                <div class="Header">
+                    <header>
+                       <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                          <!-- Brand and toggle get grouped for better mobile display -->
+                          <div class="navbar-header">
+                            <a class="navbar-brand" href="/ToDoListApp/faces/index.xhtml">Todolist</a>
+
+                          </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <h:form>
+                                    <h:commandLink value="logout" action="#{loginManager.logout}" class="btn btn-danger"/>
+                                </h:form>
+                            </li>
+                        </ul>
+                        </div>
+                      </nav>
+                    </header>
+                </div>
+            </h:panelGroup>
             <div>
                 <h1>
                 <ui:insert name="title">Default Title</ui:insert>
