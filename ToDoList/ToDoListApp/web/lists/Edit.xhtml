@@ -15,16 +15,6 @@
             </h:panelGroup>
             <h:form>
                 <div class="form-group row">
-                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_id}" for="id" />
-                    <h:inputText id="id" class="form-control" value="#{listsController.selected.id}" title="#{bundle.EditListsTitle_id}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_id}"/>
-                </div>
-                <div class="form-group row">
-                    <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" class="form-control" value="#{listsController.selected.createdAt}" title="#{bundle.EditListsTitle_createdAt}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                </div>
-                <div class="form-group row">
                     <h:outputLabel class="col-2 col-form-label" value="#{bundle.EditListsLabel_name}" for="name" />
                     <h:inputText id="name" class="form-control" value="#{listsController.selected.name}" title="#{bundle.EditListsTitle_name}" required="true" requiredMessage="#{bundle.EditListsRequiredMessage_name}"/>
                 </div>

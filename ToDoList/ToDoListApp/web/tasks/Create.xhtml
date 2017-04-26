@@ -15,10 +15,6 @@
             </h:panelGroup>
             <h:form>
                 <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_id}" for="Id" />
-                  <h:inputText id="id" class="form-control" value="#{tasksController.selected.id}" title="#{bundle.CreateTasksTitle_id}" required="false" requiredMessage="#{bundle.CreateTasksRequiredMessage_id}"/>
-                </div>
-                <div class="form-group row">
                   <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_name}" for="Name" />
                   <h:inputText id="name" class="form-control" value="#{tasksController.selected.name}" title="#{bundle.CreateTasksTitle_name}" required="true" requiredMessage="#{bundle.CreateTasksRequiredMessage_name}"/>
                 </div>
@@ -31,12 +27,6 @@
                   <h:inputText id="deadline" class="form-control" value="#{tasksController.selected.deadline}" title="#{bundle.CreateTasksTitle_deadline}" >
                     <f:convertDateTime pattern="MM/dd/yyyy" />
                   </h:inputText>
-                </div>
-                <div class="form-group row">
-                  <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_createdAt}" for="Created at" />
-                  <h:inputText id="createdAt" class="form-control" value="#{tasksController.selected.createdAt}" title="#{bundle.CreateTasksTitle_createdAt}" >
-                  <f:convertDateTime pattern="MM/dd/yyyy" />
-                </h:inputText>
                 </div>
                 <div class="form-group row">
                   <h:outputLabel class="col-2 col-form-label" value="#{bundle.CreateTasksLabel_doneAt}" for="Done at" />
