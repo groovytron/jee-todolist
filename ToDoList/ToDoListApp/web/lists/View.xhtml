@@ -66,11 +66,9 @@
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <f:selectItem itemValue="#{item.index}" itemLabel="#{task-description}"/>   
-                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareView}" value="#{bundle.ListTasksViewLink}">
-                                <f:param name="id" value="#{item.id}" />
-                            </h:commandLink>
-                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareEdit}" value="#{bundle.ListTasksEditLink}"/>
-                            <h:commandLink class="btn btn-danger" action="#{tasksController.destroy}" value="#{bundle.ListTasksDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareView2(item)}" value="#{bundle.ListTasksViewLink}" />
+                            <h:commandLink class="btn btn-primary" action="#{tasksController.prepareEdit2(item)}" value="#{bundle.ListTasksEditLink}" />
+                            <h:commandLink class="btn btn-danger" action="#{tasksController.destroy2(item)}" value="#{bundle.ListTasksDestroyLink}" />
                         </h:column>
                     </h:dataTable>
                 <h:commandLink action="#{tasksController.prepareCreate}" value="#{bundle.ListTasksCreateLink}">
