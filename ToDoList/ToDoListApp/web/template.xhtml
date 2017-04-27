@@ -30,6 +30,11 @@
                                     <h:commandLink value="logout" action="#{loginManager.logout}" class="btn btn-danger"/>
                                 </h:form>
                             </li>
+                            <li>
+                                <h:form rendered="#{facesContext.externalContext.isUserInRole('admins')}">
+                                    <a href="/faces/admin/admin_page.xhtml" class="btn btn-primary">Administration</a>
+                                </h:form>
+                            </li>
                         </ul>
                         </div>
                       </nav>

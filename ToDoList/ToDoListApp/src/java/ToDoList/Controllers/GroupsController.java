@@ -1,9 +1,9 @@
-package ToDoList.JSF;
+package ToDoList.Controllers;
 
 import ToDoList.Entities.Groups;
 import ToDoList.JSF.util.JsfUtil;
 import ToDoList.JSF.util.PaginationHelper;
-import ToDoList.Controllers.GroupsFacade;
+import ToDoList.Facades.GroupsFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class GroupsController implements Serializable {
     private Groups current;
     private DataModel items = null;
     @EJB
-    private ToDoList.Controllers.GroupsFacade ejbFacade;
+    private ToDoList.Facades.GroupsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

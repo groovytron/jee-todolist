@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ToDoList.Controllers;
+package ToDoList.Facades;
 
-import ToDoList.Entities.Users;
+import ToDoList.Entities.Lists;
+import ToDoList.Entities.Tasks;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
  * @author julien
  */
 @Stateless
-public class UsersFacade extends AbstractFacade<Users> {
+public class ListsFacade extends AbstractFacade<Lists> {
 
     @PersistenceContext(unitName = "ToDoListAppPU")
     private EntityManager em;
@@ -25,8 +28,14 @@ public class UsersFacade extends AbstractFacade<Users> {
         return em;
     }
 
-    public UsersFacade() {
-        super(Users.class);
+    public ListsFacade() {
+        super(Lists.class);
+    }
+    
+    public List<Tasks> findListTasks(Lists list) {
+        Query query = em.createNamedQuery("Tasks.fromListId");
+        query.setParameter("listId", list);
+        return (List<Tasks>)query.getResultList();
     }
     
 }

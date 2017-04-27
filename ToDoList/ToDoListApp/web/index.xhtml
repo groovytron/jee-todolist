@@ -18,7 +18,7 @@
                 <br />
                 <h:link outcome="/lists/List" value="Show All Lists Items"/>
                 <br />
-                <h:link outcome="/tasks/List" value="Show All Tasks Items"/>
+                <!-- <h:link outcome="/tasks/List" value="Show All Tasks Items"/> -->
                 <br />
                 
                        
@@ -38,14 +38,6 @@
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </h:column>
-                        <!-- <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Creation date"/>
-                            </f:facet>
-                            <h:outputText value="#{item.createdAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column> -->
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
@@ -64,15 +56,6 @@
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListListsIndexLink}"/>
             </h:form>  
-                
-                
-                
-                
-                
-                
-                
-                
-                <!--<h:link outcome="/users/List" value="Show All Users Items"/>-->
                 <!-- Condictionnal rendering example -->
                 <p>
                     <h:outputText value="Logout" rendered="#{not empty request.remoteUser}"/>
@@ -87,9 +70,9 @@
                 <p>
                     <h:outputText value="You have super power!" rendered="#{facesContext.externalContext.isUserInRole('admins')}"/>
                 </p>
-                <h:form>
+                <!-- <h:form>
                     <h:commandLink value="logout" action="#{loginManager.logout}" />
-                </h:form>
+                </h:form> -->
             </div>
         </ui:define>
     </ui:composition>  

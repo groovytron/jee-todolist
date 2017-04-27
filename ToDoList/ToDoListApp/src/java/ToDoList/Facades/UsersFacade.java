@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ToDoList.Controllers;
+package ToDoList.Facades;
 
-import ToDoList.Entities.Groups;
+import ToDoList.Entities.Users;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author julien
  */
 @Stateless
-public class GroupsFacade extends AbstractFacade<Groups> {
+public class UsersFacade extends AbstractFacade<Users> {
 
     @PersistenceContext(unitName = "ToDoListAppPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class GroupsFacade extends AbstractFacade<Groups> {
         return em;
     }
 
-    public GroupsFacade() {
-        super(Groups.class);
+    public UsersFacade() {
+        super(Users.class);
     }
     
 }

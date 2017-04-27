@@ -1,11 +1,13 @@
-package ToDoList.JSF;
+package ToDoList.Controllers;
 
+import ToDoList.Entities.Lists;
 import ToDoList.Entities.Tasks;
 import ToDoList.JSF.util.JsfUtil;
 import ToDoList.JSF.util.PaginationHelper;
-import ToDoList.Controllers.TasksFacade;
+import ToDoList.Facades.TasksFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -25,7 +27,7 @@ public class TasksController implements Serializable {
     private Tasks current;
     private DataModel items = null;
     @EJB
-    private ToDoList.Controllers.TasksFacade ejbFacade;
+    private ToDoList.Facades.TasksFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

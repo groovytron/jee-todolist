@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Tasks.findByName", query = "SELECT t FROM Tasks t WHERE t.name = :name")
     , @NamedQuery(name = "Tasks.findByDeadline", query = "SELECT t FROM Tasks t WHERE t.deadline = :deadline")
     , @NamedQuery(name = "Tasks.findByCreatedAt", query = "SELECT t FROM Tasks t WHERE t.createdAt = :createdAt")
-    , @NamedQuery(name = "Tasks.findByDoneAt", query = "SELECT t FROM Tasks t WHERE t.doneAt = :doneAt")})
+    , @NamedQuery(name = "Tasks.findByDoneAt", query = "SELECT t FROM Tasks t WHERE t.doneAt = :doneAt")
+    , @NamedQuery(name = "Tasks.fromListId", query = "SELECT t FROM Tasks t WHERE t.listId = :listId")})
 public class Tasks implements Serializable {
 
     private static final long serialVersionUID = 1L;
